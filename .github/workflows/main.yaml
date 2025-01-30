@@ -20,3 +20,6 @@ jobs:
 
       - name: Copy files to S3
         run: aws s3 cp . s3://pfitz.co.zw/ --recursive --region af-south-1
+
+      - name: Invalidate distribution
+        run: aws cloudfront create-invalidation --distribution-id E1SEZFYA78L4Y8 --paths "/*"
